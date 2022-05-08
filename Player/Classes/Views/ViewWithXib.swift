@@ -22,7 +22,7 @@ class ViewWithXib: UIView {
 	
 	private func loadViewFromNib() -> UIView {
 		let thisName = String(describing: type(of: self))
-		let view = Bundle(for: self.classForCoder).loadNibNamed(thisName, owner: self, options: nil)?.first as! UIView
+		let view = PandoraPlayer.getBundle().loadNibNamed(thisName, owner: self, options: nil)?.first as! UIView
 		return view
 	}
 	

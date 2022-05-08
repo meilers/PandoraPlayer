@@ -41,7 +41,7 @@ class PlayerControls: ViewWithXib {
 	var isPlaying: Bool = false {
 		didSet {
 			let imageStr = isPlaying ? Images.pause: Images.play
-            self.playButton.setImage(UIImage(named: imageStr, in: Bundle(for: self.classForCoder), compatibleWith: nil), for: .normal)
+            self.playButton.setImage(UIImage(named: imageStr, in: PandoraPlayer.getBundle(), compatibleWith: nil), for: .normal)
 		}
 	}
     
@@ -102,7 +102,7 @@ class PlayerControls: ViewWithXib {
     private func updateStatus() {
         switch status {
         case .Loading:
-            let image = UIImage(named: Images.playLoading, in: Bundle(for: self.classForCoder), compatibleWith: nil)
+            let image = UIImage(named: Images.playLoading, in: PandoraPlayer.getBundle(), compatibleWith: nil)
             playButton.setImage(image, for: .normal)
             
             let activityIndicatorView = UIActivityIndicatorView(style: .gray)
@@ -121,7 +121,7 @@ class PlayerControls: ViewWithXib {
             self.isUserInteractionEnabled = false
         case .Ready:
             playButton.subviews.forEach({if $0.isKind(of: UIActivityIndicatorView.self) { $0.removeFromSuperview() } })
-            let image = UIImage(named: Images.play, in: Bundle(for: self.classForCoder), compatibleWith: nil)
+            let image = UIImage(named: Images.play, in: PandoraPlayer.getBundle(), compatibleWith: nil)
             playButton.setImage(image, for: .normal)
             self.isUserInteractionEnabled = true
         }

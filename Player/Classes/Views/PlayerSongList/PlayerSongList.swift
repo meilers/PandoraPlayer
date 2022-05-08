@@ -70,7 +70,7 @@ class PlayerSongList: ViewWithXib {
 		collectionView.dataSource = self
 		collectionView.backgroundColor = UIColor.clear
 		collectionView.backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-		collectionView.register(UINib(nibName: RoundedPictureCollectionViewCell.className, bundle: Bundle(for: self.classForCoder)), forCellWithReuseIdentifier: RoundedPictureCollectionViewCell.className)
+		collectionView.register(UINib(nibName: RoundedPictureCollectionViewCell.className, bundle: PandoraPlayer.getBundle()), forCellWithReuseIdentifier: RoundedPictureCollectionViewCell.className)
         collectionView.decelerationRate = UIScrollView.DecelerationRate(rawValue: decelerationRate)
 		
 		let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))

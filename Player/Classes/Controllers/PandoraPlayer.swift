@@ -208,6 +208,12 @@ open class PandoraPlayer: UIViewController {
         return playerVC
     }
     
+    public static func getBundle() -> Bundle {
+        let pod = Bundle(for: PandoraPlayer.classForCoder())
+        let path = pod.path(forResource: "PandoraPlayer", ofType: "bundle")!
+        return Bundle(path: path)!
+    }
+    
     // MARK: Life Cycle
     
     override open func viewDidLoad() {
@@ -402,7 +408,7 @@ open class PandoraPlayer: UIViewController {
     fileprivate func animatePlayToggling(duration: TimeInterval = animationInterval) {
         let viewToAnimate = UIImageView(frame: CGRect(x: 0, y: 0, width: animatableViewWidth, height: animatableViewHeight))
         let imageStr = self.player.isPlaying ? Images.pause: Images.play
-        let image = UIImage(named: imageStr, in: Bundle(for: self.classForCoder), compatibleWith: nil)
+        let image = UIImage(named: imageStr, in: PandoraPlayer.getBundle(), compatibleWith: nil)
         viewToAnimate.image = image
         viewToAnimate.alpha = 0
         viewToAnimate.center = view.center
@@ -467,7 +473,7 @@ open class PandoraPlayer: UIViewController {
 // MARK: Helpers
     
     static func pandoraPlayerInstance() -> PandoraPlayer {
-        let storyboard = UIStoryboard(name: storyboardIdentifier, bundle: Bundle(for: PandoraPlayer.classForCoder()))
+        let storyboard = UIStoryboard(name: storyboardIdentifier, bundle: PandoraPlayer.getBundle())
         return storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! PandoraPlayer
     }
 }

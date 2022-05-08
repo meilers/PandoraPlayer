@@ -83,7 +83,7 @@ class PlayerSlider: ViewWithXib {
 		super.initUI()
 		self.sliderView.addTarget(self, action: #selector (dragDidBegin), for: .touchDragInside)
 		self.sliderView.addTarget(self, action: #selector (dragDidEnd), for: .touchUpInside)
-		self.sliderView.setThumbImage(UIImage(named: Images.sliderThumb, in: Bundle(for: self.classForCoder), compatibleWith: nil), for: .normal)
+		self.sliderView.setThumbImage(UIImage(named: Images.sliderThumb, in: PandoraPlayer.getBundle(), compatibleWith: nil), for: .normal)
 	}
 	
 	@objc private func dragDidBegin() {
