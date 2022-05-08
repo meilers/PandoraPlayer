@@ -17,8 +17,8 @@ Pod::Spec.new do |s|
   s.source_files = "Player", "Player/**/*.{h,m,swift}"
   s.exclude_files = "Classes/Exclude"
 
-  s.resources = "Player/**/*.{storyboard,xib,xcassets}"
+  s.resource_bundles = {'PandoraPlayer' => ['Player/**/*.{storyboard,xib,xcassets}']}
 
-  s.dependency "AudioKit", "~> 4.5"
+  s.dependency "AudioKit"
 
 end
