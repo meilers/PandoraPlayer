@@ -19,6 +19,4 @@ Pod::Spec.new do |s|
 
   s.resource_bundles = {'PandoraPlayer' => ['Player/**/*.{storyboard,xib,xcassets}']}
 
-  s.dependency "AudioKit", "~> 5"
-
 end
